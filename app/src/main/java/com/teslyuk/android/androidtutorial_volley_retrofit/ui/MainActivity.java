@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrofit);
+        setContentView(R.layout.activity_main);
 
         initView();
         initData();
@@ -85,7 +85,7 @@ public class MainActivity extends Activity implements
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.onGetQuestions();
+                presenter.onSearchClick();
             }
         });
     }
@@ -97,7 +97,7 @@ public class MainActivity extends Activity implements
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.onGetTags();
+        presenter.onStart();
     }
 
     @Override
@@ -116,7 +116,6 @@ public class MainActivity extends Activity implements
         findViewById(R.id.container_progress_bar).setVisibility(visibility ? View.VISIBLE : View.GONE);
 
         Logger.d("Progressloader", visibility ? "start" : "finish");
-
     }
 
     private void hideSoftKeyboard(View view) {
@@ -126,12 +125,12 @@ public class MainActivity extends Activity implements
 
     @Override
     public void showProgress() {
-        showProgressLoaderWithBackground(true, " loading data...");
+        showProgressLoaderWithBackground(true, "loading data...");
     }
 
     @Override
     public void hideProgress() {
-        showProgressLoaderWithBackground(false, " loading data...");
+        showProgressLoaderWithBackground(false, null);
     }
 
     @Override
@@ -150,7 +149,6 @@ public class MainActivity extends Activity implements
     public void setQuestions(List<Question> questions) {
         Log.d(TAG, "setQuestions");
         questionAdapter.updateData(questions);
-        questionAdapter.notifyDataSetChanged();
         hideSoftKeyboard(tagView);
     }
 

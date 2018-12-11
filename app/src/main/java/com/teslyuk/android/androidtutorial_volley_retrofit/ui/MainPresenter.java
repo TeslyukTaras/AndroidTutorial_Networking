@@ -26,9 +26,9 @@ public class MainPresenter implements Contract.IMainPresenter {
     }
 
     @Override
-    public void onGetQuestions() {
+    public void onSearchClick() {
         String tag = view.getTag();
-        Log.d(TAG, "onGetQuestions tag: " + tag);
+        Log.d(TAG, "onSearchClick tag: " + tag);
         view.showProgress();
         apiRepository.setFrameworkType(view.isRetrofitFlag());
         apiRepository.getQuestions(tag, new DataSource.LoadQuestionsCallback() {
@@ -53,8 +53,8 @@ public class MainPresenter implements Contract.IMainPresenter {
     }
 
     @Override
-    public void onGetTags() {
-        Log.d(TAG, "onGetTags");
+    public void onStart() {
+        Log.d(TAG, "onStart");
         view.showProgress();
         apiRepository.setFrameworkType(view.isRetrofitFlag());
         apiRepository.getTags(new DataSource.LoadTagsCallback() {

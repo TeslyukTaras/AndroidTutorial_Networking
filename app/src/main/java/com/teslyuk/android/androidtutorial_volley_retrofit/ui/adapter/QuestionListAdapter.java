@@ -48,6 +48,7 @@ public class QuestionListAdapter extends BaseAdapter {
     public void updateData(List<Question> questions) {
         list.clear();
         list.addAll(questions);
+        notifyDataSetChanged();
     }
 
     @Override

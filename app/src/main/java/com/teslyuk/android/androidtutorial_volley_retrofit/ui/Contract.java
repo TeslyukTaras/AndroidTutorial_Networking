@@ -29,9 +29,9 @@ public interface Contract {
 
     interface IMainPresenter {
 
-        void onGetQuestions();
+        void onSearchClick();
 
-        void onGetTags();
+        void onStart();
     }
 
 }

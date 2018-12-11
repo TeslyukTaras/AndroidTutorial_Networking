@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by taras on 15.02.16.
  */
-public class StackOverflowTags extends BaseStackOverflow{
+public class StackOverflowTags extends BaseStackOverflow {
 
     @SerializedName("items")
     @Expose
@@ -25,72 +25,56 @@ public class StackOverflowTags extends BaseStackOverflow{
     private Integer quotaRemaining;
 
     /**
-     *
-     * @return
-     * The items
+     * @return The items
      */
     public List<Tag> getItems() {
         return items;
     }
 
     /**
-     *
-     * @param items
-     * The items
+     * @param items The items
      */
     public void setItems(List<Tag> items) {
         this.items = items;
     }
 
     /**
-     *
-     * @return
-     * The hasMore
+     * @return The hasMore
      */
     public Boolean getHasMore() {
         return hasMore;
     }
 
     /**
-     *
-     * @param hasMore
-     * The has_more
+     * @param hasMore The has_more
      */
     public void setHasMore(Boolean hasMore) {
         this.hasMore = hasMore;
     }
 
     /**
-     *
-     * @return
-     * The quotaMax
+     * @return The quotaMax
      */
     public Integer getQuotaMax() {
         return quotaMax;
     }
 
     /**
-     *
-     * @param quotaMax
-     * The quota_max
+     * @param quotaMax The quota_max
      */
     public void setQuotaMax(Integer quotaMax) {
         this.quotaMax = quotaMax;
     }
 
     /**
-     *
-     * @return
-     * The quotaRemaining
+     * @return The quotaRemaining
      */
     public Integer getQuotaRemaining() {
         return quotaRemaining;
     }
 
     /**
-     *
-     * @param quotaRemaining
-     * The quota_remaining
+     * @param quotaRemaining The quota_remaining
      */
     public void setQuotaRemaining(Integer quotaRemaining) {
         this.quotaRemaining = quotaRemaining;

@@ -24,90 +24,70 @@ public class Tag {
     private String name;
 
     /**
-     *
-     * @return
-     * The hasSynonyms
+     * @return The hasSynonyms
      */
     public Boolean getHasSynonyms() {
         return hasSynonyms;
     }
 
     /**
-     *
-     * @param hasSynonyms
-     * The has_synonyms
+     * @param hasSynonyms The has_synonyms
      */
     public void setHasSynonyms(Boolean hasSynonyms) {
         this.hasSynonyms = hasSynonyms;
     }
 
     /**
-     *
-     * @return
-     * The isModeratorOnly
+     * @return The isModeratorOnly
      */
     public Boolean getIsModeratorOnly() {
         return isModeratorOnly;
     }
 
     /**
-     *
-     * @param isModeratorOnly
-     * The is_moderator_only
+     * @param isModeratorOnly The is_moderator_only
      */
     public void setIsModeratorOnly(Boolean isModeratorOnly) {
         this.isModeratorOnly = isModeratorOnly;
     }
 
     /**
-     *
-     * @return
-     * The isRequired
+     * @return The isRequired
      */
     public Boolean getIsRequired() {
         return isRequired;
     }
 
     /**
-     *
-     * @param isRequired
-     * The is_required
+     * @param isRequired The is_required
      */
     public void setIsRequired(Boolean isRequired) {
         this.isRequired = isRequired;
     }
 
     /**
-     *
-     * @return
-     * The count
+     * @return The count
      */
     public Integer getCount() {
         return count;
     }
 
     /**
-     *
-     * @param count
-     * The count
+     * @param count The count
      */
     public void setCount(Integer count) {
         this.count = count;
     }
 
     /**
-     *
-     * @return
-     * The name
+     * @return The name
      */
     public String getName() {
         return name;
     }
 
     /**
-     *
-     * @param name
-     * The name
+     * @param name The name
      */
     public void setName(String name) {
         this.name = name;
