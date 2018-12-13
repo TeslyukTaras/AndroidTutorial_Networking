@@ -1,5 +1,6 @@
 package com.teslyuk.android.androidtutorial_volley_retrofit.data.source.retrofit_api;
 
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowAnswers;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowQuestions;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowTags;
 
@@ -16,4 +17,7 @@ public interface StackOverflowAPI {
 
     @GET("/2.2/tags?order=desc&sort=popular&site=stackoverflow")
     Call<StackOverflowTags> loadPopularTags();
+
+    @GET("/2.2/answers?order=desc&sort=activity&site=stackoverflow")
+    Call<StackOverflowAnswers> loadAnswers();
 }

@@ -1,7 +1,9 @@
 package com.teslyuk.android.androidtutorial_volley_retrofit.data.source;
 
 import com.teslyuk.android.androidtutorial_volley_retrofit.AndroidTutorialApplication;
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Answer;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Question;
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowAnswers;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowQuestions;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowTags;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Tag;
@@ -42,6 +44,26 @@ public class VolleyDataSource implements DataSource {
                 if (response != null && response instanceof StackOverflowTags) {
                     StackOverflowTags SOTags = (StackOverflowTags) response;
                     callback.onTagsLoaded(SOTags.getItems());
+                } else {
+                    callback.onFailure();
+                }
+            }
+
+            @Override
+            public void onResponseFail(String errorMessage) {
+                callback.onFailure();
+            }
+        });
+    }
+
+    @Override
+    public void getAnswers(final LoadCallback<Answer> callback) {
+        AndroidTutorialApplication.getRequestQueue().getAnswers(new WebRequest.ResponseListener() {
+            @Override
+            public void onResponseSuccess(Object response) {
+                if (response != null && response instanceof StackOverflowAnswers) {
+                    StackOverflowAnswers SOAnswers = (StackOverflowAnswers) response;
+                    callback.onDataLoaded(SOAnswers.getItems());
                 } else {
                     callback.onFailure();
                 }

@@ -1,5 +1,6 @@
 package com.teslyuk.android.androidtutorial_volley_retrofit.data.source;
 
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Answer;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Question;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Tag;
 
@@ -23,7 +24,15 @@ public interface DataSource {
         void onFailure();
     }
 
+    interface LoadCallback<T> {
+        void onDataLoaded(List<T> tags);
+
+        void onFailure();
+    }
+
     void getQuestions(String tag, LoadQuestionsCallback callback);
 
     void getTags(LoadTagsCallback callback);
+
+    void getAnswers(LoadCallback<Answer> callback);
 }

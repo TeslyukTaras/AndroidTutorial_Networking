@@ -7,6 +7,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowAnswers;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowQuestions;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowTags;
 import com.teslyuk.android.androidtutorial_volley_retrofit.utils.Logger;
@@ -155,5 +156,9 @@ public class WebRequest {
 
     public void getPopularTags(ResponseListener listener) {
         get((API_URL) + "/2.2/tags?order=desc&sort=popular&site=stackoverflow", StackOverflowTags.class, listener);
+    }
+
+    public void getAnswers(ResponseListener listener) {
+        get((API_URL) + "/2.2/answers?order=desc&sort=activity&site=stackoverflow", StackOverflowAnswers.class, listener);
     }
 }

@@ -2,6 +2,8 @@ package com.teslyuk.android.androidtutorial_volley_retrofit.data.source;
 
 import android.util.Log;
 
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Answer;
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowAnswers;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowQuestions;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.StackOverflowTags;
 import com.teslyuk.android.androidtutorial_volley_retrofit.data.source.retrofit_api.StackOverflowAPI;
@@ -74,6 +76,28 @@ public class RetrofitDataSource implements DataSource {
 
                          @Override
                          public void onFailure(Call<StackOverflowTags> call, Throwable t) {
+                             callback.onFailure();
+                         }
+                     }
+        );
+    }
+
+    @Override
+    public void getAnswers(final LoadCallback<Answer> callback) {
+        Call<StackOverflowAnswers> call = stackOverflowAPI.loadAnswers();
+        //asynchronous call
+        call.enqueue(new Callback<StackOverflowAnswers>() {
+                         @Override
+                         public void onResponse(Call<StackOverflowAnswers> call, Response<StackOverflowAnswers> response) {
+                             if (response != null && response.body() != null) {
+                                 callback.onDataLoaded(response.body().getItems());
+                             } else {
+                                 callback.onFailure();
+                             }
+                         }
+
+                         @Override
+                         public void onFailure(Call<StackOverflowAnswers> call, Throwable t) {
                              callback.onFailure();
                          }
                      }

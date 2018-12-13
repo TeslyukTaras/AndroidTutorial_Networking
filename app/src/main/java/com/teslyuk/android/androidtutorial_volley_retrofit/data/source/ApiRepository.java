@@ -1,5 +1,7 @@
 package com.teslyuk.android.androidtutorial_volley_retrofit.data.source;
 
+import com.teslyuk.android.androidtutorial_volley_retrofit.data.model.Answer;
+
 public class ApiRepository implements DataSource {
 
     private static ApiRepository instance;
@@ -40,6 +42,15 @@ public class ApiRepository implements DataSource {
             retrofitDataSource.getTags(callback);
         } else {
             volleyDataSource.getTags(callback);
+        }
+    }
+
+    @Override
+    public void getAnswers(LoadCallback<Answer> callback) {
+        if (isRetrofit) {
+            retrofitDataSource.getAnswers(callback);
+        } else {
+            volleyDataSource.getAnswers(callback);
         }
     }
 }
